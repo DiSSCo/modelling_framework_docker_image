@@ -129,7 +129,7 @@ services:
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-  # CONFING, in order to not load quickstatements then remove this entire section
+  # CONFIG, in order to not load quickstatements then remove this entire section
   quickstatements:
     image: wikibase/quickstatements:latest
     ports:
