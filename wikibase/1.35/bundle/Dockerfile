@@ -13,6 +13,9 @@ bash download-extension.sh WikibaseCirrusSearch;\
 bash download-extension.sh UniversalLanguageSelector;\
 bash download-extension.sh cldr;\
 bash download-extension.sh EntitySchema;\
+bash download-extension.sh Scribunto;\
+bash download-extension.sh ParserFunctions;\
+bash download-extension.sh SyntaxHighlight_GeSHi;\
 tar xzf OAuth.tar.gz;\
 tar xzf Elastica.tar.gz;\
 tar xzf CirrusSearch.tar.gz;\
@@ -21,6 +24,9 @@ tar xzf UniversalLanguageSelector.tar.gz;\
 tar xzf cldr.tar.gz;\
 tar xzf WikibaseImport.tar.gz;\
 tar xzf EntitySchema.tar.gz;\
+tar xzf Scribunto.tar.gz;\
+tar xzf ParserFunctions.tar.gz;\
+tar xzf SyntaxHighlight_GeSHi.tar.gz;\
 rm ./*.tar.gz
 
 FROM wikibase/wikibase:1.35 as collector
@@ -32,6 +38,9 @@ COPY --from=fetcher /WikibaseCirrusSearch /var/www/html/extensions/WikibaseCirru
 COPY --from=fetcher /UniversalLanguageSelector /var/www/html/extensions/UniversalLanguageSelector
 COPY --from=fetcher /cldr /var/www/html/extensions/cldr
 COPY --from=fetcher /EntitySchema /var/www/html/extensions/EntitySchema
+COPY --from=fetcher /Scribunto /var/www/html/extensions/Scribunto
+COPY --from=fetcher /ParserFunctions /var/www/html/extensions/ParserFunctions
+COPY --from=fetcher /SyntaxHighlight_GeSHi /var/www/html/extensions/SyntaxHighlight_GeSHi
 
 FROM composer@sha256:d374b2e1f715621e9d9929575d6b35b11cf4a6dc237d4a08f2e6d1611f534675 as composer
 COPY --from=collector /var/www/html /var/www/html

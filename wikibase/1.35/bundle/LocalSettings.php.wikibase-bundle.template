@@ -23,5 +23,16 @@ wfLoadExtension( 'UniversalLanguageSelector' );
 # cldr
 wfLoadExtension( 'cldr' );
 
-#EntitySchema
+# EntitySchema
 wfLoadExtension( 'EntitySchema' );
+
+# SyntaxHighlight_GeSHi
+wfLoadExtension( 'SyntaxHighlight_GeSHi' );
+${DOLLAR}wgSyntaxHighlightDefaultLang = "xml";
+
+# ParserFunctions
+wfLoadExtension( 'ParserFunctions' );
+
+# Scribunto
+wfLoadExtension( 'Scribunto' );
+${DOLLAR}wgScribuntoDefaultEngine = 'luastandalone';
