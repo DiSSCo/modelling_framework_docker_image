@@ -153,6 +153,7 @@ services:
       - "WB_PROPERTY_PREFIX=Property:"
       - WB_ITEM_NAMESPACE=120
       - "WB_ITEM_PREFIX=Item:"
+      - MW_NAME=wikibase-docker
 
 volumes:
   mediawiki-mysql-data:

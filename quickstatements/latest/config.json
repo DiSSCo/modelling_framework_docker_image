@@ -12,6 +12,7 @@
 				"mwOAuthUrl":"${WIKIBASE_SCHEME_AND_HOST}/w/index.php?title=Special:OAuth" ,
 				"mwOAuthIW":"mw"
 			} ,
+			"label" : "${MW_NAME}",
 			"server" : "${WB_PUBLIC_HOST_AND_PORT}" ,
 			"api" : "${WIKIBASE_SCHEME_AND_HOST}/w/api.php" ,
 			"pageBase" : "${WB_PUBLIC_SCHEME_HOST_AND_PORT}/wiki/" ,
