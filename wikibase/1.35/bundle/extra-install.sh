@@ -19,3 +19,12 @@ if [[ -f /quickstatements/data/qs-oauth.json ]]; then
     export OAUTH_CONSUMER_SECRET=$(jq -r '.secret' /quickstatements/data/qs-oauth.json);
 	envsubst < /templates/oauth.ini > /quickstatements/data/oauth.ini
 fi
+
+page='Mediawiki:QueryTemplateImport'
+version=$(php /var/www/html/maintenance/getText.php "$page" 2>&1 )  || :
+if echo "$version" | fgrep -q "does not exist"; then
+	envsubst < /wiki-import.xml.template > /wiki-import.xml
+	php /var/www/html/maintenance/importDump.php < /wiki-import.xml
+	sleep 2s
+	php /var/www/html/maintenance/rebuildrecentchanges.php
+fi

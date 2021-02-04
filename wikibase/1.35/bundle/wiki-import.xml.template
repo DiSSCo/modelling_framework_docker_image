@@ -1,0 +1,70 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:QueryServiceURL</title>
+    <ns>8</ns>
+    <revision>
+      <contributor>
+        <username>MediaWiki Import</username>
+      </contributor>
+      <comment>Created page with &quot;${WDQS_PUBLIC_SCHEME_HOST_AND_PORT}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">${WDQS_PUBLIC_SCHEME_HOST_AND_PORT}</text>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:QuickStatementsURL</title>
+    <ns>8</ns>
+    <revision>
+      <contributor>
+        <username>MediaWiki Import</username>
+      </contributor>
+      <comment>Created page with &quot;${QS_PUBLIC_SCHEME_HOST_AND_PORT}&quot;</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">${QS_PUBLIC_SCHEME_HOST_AND_PORT}</text>
+    </revision>
+  </page>
+   <page>
+    <title>MediaWiki:Sidebar</title>
+    <ns>8</ns>
+    <revision>
+      <contributor>
+        <username>MediaWiki Import</username>
+      </contributor>
+      <comment>Extended Sidebar</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="369">
+* navigation
+** mainpage|mainpage-description
+** recentchanges-url|recentchanges
+** Special:NewItem|Add Item
+** Special:NewProperty|Add Property
+** {{MediaWiki:QueryServiceURL}}|Query Service
+** {{MediaWiki:QuickStatementsURL}}|QuickStatements
+** {{ns:Project}}:Useful_Queries|Useful Queries
+** randompage-url|randompage
+** helppage|help
+* SEARCH
+* TOOLBOX
+* LANGUAGES</text>
+      <sha1>me8pvdxm788i6yhcxrxy3zb8dtnvos4</sha1>
+    </revision>
+  </page>
+  <page>
+    <title>MediaWiki:QueryTemplateImport</title>
+    <ns>8</ns>
+    <revision>
+      <contributor>
+        <username>MediaWiki Import</username>
+      </contributor>
+      <comment>Created page to mark query template import</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve">1</text>
+    </revision>
+  </page>
+</mediawiki>

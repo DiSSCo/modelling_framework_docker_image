@@ -51,3 +51,4 @@ COPY extra-install.sh /
 COPY extra-entrypoint-run-first.sh /
 RUN cat /LocalSettings.php.wikibase-bundle.template >> /LocalSettings.php.template && rm /LocalSettings.php.wikibase-bundle.template
 COPY oauth.ini /templates/oauth.ini
+COPY wiki-import.xml.template /

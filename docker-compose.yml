@@ -46,6 +46,7 @@ services:
       - DB_PASS=sqlpass
       - DB_NAME=my_wiki
       - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:9191
+      - WDQS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:8282
   mysql:
     image: mariadb:10.3
     restart: unless-stopped
