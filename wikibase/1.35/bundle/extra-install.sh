@@ -20,6 +20,11 @@ if [[ -f /quickstatements/data/qs-oauth.json ]]; then
 	envsubst < /templates/oauth.ini > /quickstatements/data/oauth.ini
 fi
 
+if [ ! -L  /var/www/html/LocalSettings.php ]; then
+	mv /var/www/html/LocalSettings.php /var/www/html/config/LocalSettings.php
+	ln -s /var/www/html/config/LocalSettings.php /var/www/html/LocalSettings.php
+fi
+
 page='Mediawiki:QueryTemplateImport'
 version=$(php /var/www/html/maintenance/getText.php "$page" 2>&1 )  || :
 if echo "$version" | fgrep -q "does not exist"; then

@@ -59,5 +59,6 @@ COPY LocalSettings.php.wikibase-bundle.template /LocalSettings.php.wikibase-bund
 COPY extra-install.sh /
 COPY extra-entrypoint-run-first.sh /
 RUN cat /LocalSettings.php.wikibase-bundle.template >> /LocalSettings.php.template && rm /LocalSettings.php.wikibase-bundle.template
+RUN mkdir /var/www/html/config
 COPY oauth.ini /templates/oauth.ini
 COPY wiki-import.xml.template /
