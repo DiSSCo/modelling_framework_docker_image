@@ -36,3 +36,9 @@ wfLoadExtension( 'ParserFunctions' );
 # Scribunto
 wfLoadExtension( 'Scribunto' );
 ${DOLLAR}wgScribuntoDefaultEngine = 'luastandalone';
+
+# TemplateData
+wfLoadExtension( 'TemplateData' );
+
+# TemplateStyles
+wfLoadExtension( 'TemplateStyles' );

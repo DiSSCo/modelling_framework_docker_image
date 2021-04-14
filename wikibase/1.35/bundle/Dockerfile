@@ -16,6 +16,8 @@ bash download-extension.sh EntitySchema;\
 bash download-extension.sh Scribunto;\
 bash download-extension.sh ParserFunctions;\
 bash download-extension.sh SyntaxHighlight_GeSHi;\
+bash download-extension.sh TemplateData;\
+bash download-extension.sh TemplateStyles;\
 tar xzf OAuth.tar.gz;\
 tar xzf Elastica.tar.gz;\
 tar xzf CirrusSearch.tar.gz;\
@@ -27,6 +29,8 @@ tar xzf EntitySchema.tar.gz;\
 tar xzf Scribunto.tar.gz;\
 tar xzf ParserFunctions.tar.gz;\
 tar xzf SyntaxHighlight_GeSHi.tar.gz;\
+tar xzf TemplateData.tar.gz;\
+tar xzf TemplateStyles.tar.gz;\
 rm ./*.tar.gz
 
 FROM wikibase/wikibase:1.35 as collector
@@ -41,6 +45,8 @@ COPY --from=fetcher /EntitySchema /var/www/html/extensions/EntitySchema
 COPY --from=fetcher /Scribunto /var/www/html/extensions/Scribunto
 COPY --from=fetcher /ParserFunctions /var/www/html/extensions/ParserFunctions
 COPY --from=fetcher /SyntaxHighlight_GeSHi /var/www/html/extensions/SyntaxHighlight_GeSHi
+COPY --from=fetcher /TemplateData /var/www/html/extensions/TemplateData
+COPY --from=fetcher /TemplateStyles /var/www/html/extensions/TemplateStyles
 
 FROM composer@sha256:d374b2e1f715621e9d9929575d6b35b11cf4a6dc237d4a08f2e6d1611f534675 as composer
 COPY --from=collector /var/www/html /var/www/html
