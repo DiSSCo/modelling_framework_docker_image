@@ -30,6 +30,8 @@ version=$(php /var/www/html/maintenance/getText.php "$page" 2>&1 )  || :
 if echo "$version" | fgrep -q "does not exist"; then
 	envsubst < /wiki-import.xml.template > /wiki-import.xml
 	php /var/www/html/maintenance/importDump.php < /wiki-import.xml
+	php /var/www/html/maintenance/importDump.php --username-prefix wd /Wikidata-Useful_Templates.xml
 	sleep 2s
 	php /var/www/html/maintenance/rebuildrecentchanges.php
+	php /var/www/html/maintenance/initSiteStats.php
 fi

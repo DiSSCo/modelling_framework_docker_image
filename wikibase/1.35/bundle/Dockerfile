@@ -62,3 +62,4 @@ RUN cat /LocalSettings.php.wikibase-bundle.template >> /LocalSettings.php.templa
 RUN mkdir /var/www/html/config
 COPY oauth.ini /templates/oauth.ini
 COPY wiki-import.xml.template /
+COPY Wikidata-Useful_Templates.xml /
