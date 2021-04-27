@@ -36,15 +36,15 @@ services:
       - DB_SERVER=mysql.svc:3306
       - MW_ELASTIC_HOST=elasticsearch.svc
       - MW_ELASTIC_PORT=9200
-      # CONFIG - Change the default values below
+      # CONFIG - Change the default values below, ${MW_ADMIN_PASS} and ${MW_WG_SECRET_KEY} should be set in the .env file.
       - MW_ADMIN_NAME=WikibaseAdmin
-      - MW_ADMIN_PASS=WikibaseDockerAdminPass
+      - MW_ADMIN_PASS=${MW_ADMIN_PASS}
       - MW_ADMIN_EMAIL=admin@example.com
-      - MW_WG_SECRET_KEY=secretkey
+      - MW_WG_SECRET_KEY=${MW_WG_SECRET_KEY}
       - MW_SITE_NAME=wikibase-docker
-      # CONFIG - Change the default values below (should match mysql values in this file)
+      # CONFIG - Change the default values below (should match mysql values in this file), ${DB_PASS} should be set in the .env file.
       - DB_USER=wikiuser
-      - DB_PASS=sqlpass
+      - DB_PASS=${DB_PASS}
       - DB_NAME=my_wiki
       - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:9191
       - WDQS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:8282
@@ -58,7 +58,7 @@ services:
       # CONFIG - Change the default values below (should match values passed to wikibase)
       MYSQL_DATABASE: 'my_wiki'
       MYSQL_USER: 'wikiuser'
-      MYSQL_PASSWORD: 'sqlpass'
+      MYSQL_PASSWORD: '${DB_PASS}'
     networks:
       default:
         aliases:
