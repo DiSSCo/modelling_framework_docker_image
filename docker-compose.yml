@@ -14,6 +14,9 @@ version: '3'
 services:
   wikibase:
     image: wikibase/wikibase:1.35-bundle
+    build:
+      context: ./wikibase/1.35/bundle
+      dockerfile: Dockerfile
     links:
       - mysql
     ports:
@@ -65,6 +68,9 @@ services:
          - mysql.svc
   wdqs-frontend:
     image: wikibase/wdqs-frontend:latest
+    build:
+      context: ./wdqs-frontend/latest
+      dockerfile: Dockerfile
     restart: unless-stopped
     ports:
     # CONFIG - Change the 8282 here to expose the Query Service UI on a different port
@@ -81,6 +87,9 @@ services:
       - WDQS_NAME=Wikibase Docker Query Service
   wdqs:
     image: wikibase/wdqs:0.3.40
+    build:
+      context: ./wdqs/0.3.40
+      dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
       - /var/wikibase-docker-volumes/query-service-data:/wdqs/data
@@ -97,6 +106,9 @@ services:
       - 9999
   wdqs-proxy:
     image: wikibase/wdqs-proxy
+    build:
+      context: ./wdqs-proxy/latest
+      dockerfile: Dockerfile
     restart: unless-stopped
     environment:
       - PROXY_PASS_HOST=wdqs.svc:9999
@@ -136,6 +148,9 @@ services:
   # CONFIG, in order to not load quickstatements then remove this entire section
   quickstatements:
     image: wikibase/quickstatements:latest
+    build:
+      context: ./quickstatements/latest
+      dockerfile: Dockerfile
     ports:
      - "9191:80"
     depends_on:
