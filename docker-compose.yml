@@ -35,6 +35,7 @@ services:
         aliases:
          - wikibase.svc
          # CONFIG - Add your real wikibase hostname here, only for internal names and when NOT terminating SSL outside the container.
+         - dissco-mf.bgbm.org:8181
     environment:
       - DB_SERVER=mysql.svc:3306
       - MW_ELASTIC_HOST=elasticsearch.svc
@@ -42,15 +43,15 @@ services:
       # CONFIG - Change the default values below, ${MW_ADMIN_PASS} and ${MW_WG_SECRET_KEY} should be set in the .env file.
       - MW_ADMIN_NAME=WikibaseAdmin
       - MW_ADMIN_PASS=${MW_ADMIN_PASS}
-      - MW_ADMIN_EMAIL=admin@example.com
+      - MW_ADMIN_EMAIL=d.fichtmueller@bgbm.org
       - MW_WG_SECRET_KEY=${MW_WG_SECRET_KEY}
-      - MW_SITE_NAME=wikibase-docker
+      - MW_SITE_NAME=DiSSCo Modelling Framework
       # CONFIG - Change the default values below (should match mysql values in this file), ${DB_PASS} should be set in the .env file.
       - DB_USER=wikiuser
       - DB_PASS=${DB_PASS}
       - DB_NAME=my_wiki
-      - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:9191
-      - WDQS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:8282
+      - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://dissco-mf.bgbm.org:9191
+      - WDQS_PUBLIC_SCHEME_HOST_AND_PORT=http://dissco-mf.bgbm.org:8282
   mysql:
     image: mariadb:10.3
     restart: unless-stopped
@@ -84,7 +85,7 @@ services:
     environment:
       - WIKIBASE_HOST=wikibase.svc
       - WDQS_HOST=wdqs-proxy.svc
-      - WDQS_NAME=Wikibase Docker Query Service
+      - WDQS_NAME=DiSSCo Modelling Framework Query Service
   wdqs:
     image: wikibase/wdqs:0.3.40
     build:
@@ -162,14 +163,14 @@ services:
         aliases:
          - quickstatements.svc
     environment:
-      - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:9191
-      - WB_PUBLIC_SCHEME_HOST_AND_PORT=http://localhost:8181
-      - WIKIBASE_SCHEME_AND_HOST=http://wikibase.svc
+      - QS_PUBLIC_SCHEME_HOST_AND_PORT=http://dissco-mf.bgbm.org:9191
+      - WB_PUBLIC_SCHEME_HOST_AND_PORT=http://dissco-mf.bgbm.org:8181
+      - WIKIBASE_SCHEME_AND_HOST=http://dissco-mf.bgbm.org:8181
       - WB_PROPERTY_NAMESPACE=122
       - "WB_PROPERTY_PREFIX=Property:"
       - WB_ITEM_NAMESPACE=120
       - "WB_ITEM_PREFIX=Item:"
-      - MW_NAME=wikibase-docker
+      - MW_NAME=DiSSCo Modelling Framework
   proxy:
     image: wikibase/proxy
     build:
@@ -189,7 +190,7 @@ services:
         aliases:
          - proxy.svc
     environment:
-      - SERVER_NAME=localhost
+      - SERVER_NAME=dissco-mf.bgbm.org
 
 volumes:
   mediawiki-mysql-data:
