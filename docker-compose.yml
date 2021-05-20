@@ -20,9 +20,9 @@ services:
     # CONFIG - Change the 8181 here to expose Wikibase & MediaWiki on a different port
      - "8181:80"
     volumes:
-      - mediawiki-images-data:/var/www/html/images
-      - quickstatements-data:/quickstatements/data
-      - mediawiki-config-data:/var/www/html/config
+      - /var/wikibase-docker-volumes/mediawiki-images-data:/var/www/html/images
+      - /var/wikibase-docker-volumes/quickstatements-data:/quickstatements/data
+      - /var/wikibase-docker-volumes/mediawiki-config-data:/var/www/html/config
     depends_on:
     - mysql
     - elasticsearch
@@ -52,7 +52,7 @@ services:
     image: mariadb:10.3
     restart: unless-stopped
     volumes:
-      - mediawiki-mysql-data:/var/lib/mysql
+      - /var/wikibase-docker-volumes/mediawiki-mysql-data:/var/lib/mysql
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
       # CONFIG - Change the default values below (should match values passed to wikibase)
@@ -83,7 +83,7 @@ services:
     image: wikibase/wdqs:0.3.40
     restart: unless-stopped
     volumes:
-      - query-service-data:/wdqs/data
+      - /var/wikibase-docker-volumes/query-service-data:/wdqs/data
     command: /runBlazegraph.sh
     networks:
       default:
@@ -141,7 +141,7 @@ services:
     depends_on:
      - wikibase
     volumes:
-     - quickstatements-data:/quickstatements/data
+     - /var/wikibase-docker-volumes/quickstatements-data:/quickstatements/data
     networks:
       default:
         aliases:
