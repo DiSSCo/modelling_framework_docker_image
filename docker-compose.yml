@@ -155,6 +155,26 @@ services:
       - WB_ITEM_NAMESPACE=120
       - "WB_ITEM_PREFIX=Item:"
       - MW_NAME=wikibase-docker
+  proxy:
+    image: wikibase/proxy
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    links:
+      - wikibase
+      - wdqs-proxy
+      - wdqs-frontend
+      - quickstatements
+    ports:
+     - "80:80"
+    volumes:
+     - /var/wikibase-docker-volumes_new/proxy-config-data:/usr/local/apache2/conf/sites
+    networks:
+      default:
+        aliases:
+         - proxy.svc
+    environment:
+      - SERVER_NAME=localhost
 
 volumes:
   mediawiki-mysql-data:
@@ -162,3 +182,4 @@ volumes:
   query-service-data:
   quickstatements-data:
   mediawiki-config-data:
+  proxy-config-data:

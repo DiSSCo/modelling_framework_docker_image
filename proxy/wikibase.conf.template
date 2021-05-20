@@ -1,0 +1,16 @@
+<VirtualHost *:80>
+        ServerName ${SERVER_NAME}
+
+        ProxyPass "/query/" "http://wdqs-frontend.svc/"
+        ProxyPassReverse "/query/" "http://wdqs-frontend.svc/"
+		
+        ProxyPass "/proxy/" "http://wdqs-proxy.svc/"
+        ProxyPassReverse "/proxy/" "http://wdqs-proxy.svc/"
+		
+        ProxyPass "/quickstatements/" "http://quickstatements.svc/"
+        ProxyPassReverse "/quickstatements/" "http://quickstatements.svc/"
+		
+        ProxyPass "/" "http://wikibase.svc/"
+        ProxyPassReverse "/" "http://wikibase.svc/"
+
+</VirtualHost>
